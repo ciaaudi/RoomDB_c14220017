@@ -46,13 +46,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, TambahDaftar::class.java))
         }
 
-        super.onStart()
-        CoroutineScope(Dispatchers.Main).async {
-            val daftarBelanja = DB.fundaftarBelanjaDAO().selectAll()
-            Log.d("data ROOM", daftarBelanja.toString())
-            adapterDaftar.isiData(daftarBelanja)
-        }
-
         adapterDaftar.setOnItemClickCallBack(
             object : adapterDaftar.OnItemClickCallBack{
                 override fun delData(dtBelanja: daftarBelanja) {
@@ -66,5 +59,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         )
+    }
+
+    override fun onStart() {
+        super.onStart()
+        CoroutineScope(Dispatchers.Main).async {
+            val daftarBelanja = DB.fundaftarBelanjaDAO().selectAll()
+            Log.d("data ROOM", daftarBelanja.toString())
+            adapterDaftar.isiData(daftarBelanja)
+        }
     }
 }

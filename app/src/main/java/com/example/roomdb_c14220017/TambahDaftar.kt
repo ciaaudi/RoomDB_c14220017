@@ -74,7 +74,7 @@ class TambahDaftar : AppCompatActivity() {
                     isi_tanggal = tanggal,
                     isi_item = _etItem.text.toString(),
                     isi_jumlah = _etJumlah.text.toString(),
-                    isi_status = 1,
+                    isi_status = 0,
                     pilihid = iID
                 )
             }
