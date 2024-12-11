@@ -57,6 +57,10 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
+
+                override fun editData(dtBelanja: daftarBelanja) {
+                    TODO("Not yet implemented")
+                }
             }
         )
     }

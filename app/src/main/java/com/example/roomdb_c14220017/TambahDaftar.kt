@@ -1,5 +1,6 @@
 package com.example.roomdb_c14220017
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -34,6 +35,7 @@ class TambahDaftar : AppCompatActivity() {
         var _btnUpdate = findViewById<Button>(R.id.btnUpdate)
 
         _btnTambah.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
             CoroutineScope(Dispatchers.IO).async {
                 DB.fundaftarBelanjaDAO().insert(
                     daftarBelanja(
@@ -69,6 +71,7 @@ class TambahDaftar : AppCompatActivity() {
         }
 
         _btnUpdate.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
             CoroutineScope(Dispatchers.IO).async {
                 DB.fundaftarBelanjaDAO().update(
                     isi_tanggal = tanggal,
